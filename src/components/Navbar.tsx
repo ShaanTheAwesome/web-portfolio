@@ -1,4 +1,4 @@
-import sunset from "../assets/sunrise.jpg";
+import sunset from "../assets/clouds.jpg";
 import { mcBox } from "./Minecraft";
 
 export default function Navbar() {

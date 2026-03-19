@@ -1,9 +1,9 @@
-import ME from "../assets/me.jpg";
+import ME from "../../assets/me.jpg";
 
 export default function About() {
 
   return (
-    <div className="flex w-full h-full gap-[1%] text-xl">
+    <div className="flex w-full h-full gap-[5%] text-xl">
 
       {/* LEFT — TEXT (55%) */}
       <div className="flex-1 min-w-0 flex flex-col gap-[1rem]">

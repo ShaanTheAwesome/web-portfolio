@@ -1,5 +1,6 @@
-import stone from "../assets/stone.jpg";
+import stone from "../../assets/stone.jpg";
 import About from "./About";
+import Projects from "./Projects";
 
 interface Props {
   activePanel: string;
@@ -16,7 +17,8 @@ export default function ContentPanel({ activePanel }: Props) {
       break;
 
     case "projects":
-      content = <div>My Projects are Coming Soon</div>;
+      content = <Projects />;
+      title = "Projects"
       break;
 
     case "stuff":

@@ -1,17 +1,32 @@
-import { useEffect, useRef, useState } from 'react';
 import dirt from './assets/dirt.jpg';
+import stone from "./assets/stone.jpg";
+import { useEffect, useRef, useState } from 'react';
 import { handleCommand } from './components/Commands';
 import type { CommandType, Line } from "./components/LineType";
-import stone from "./assets/stone.jpg";
-import ContentPanel from './components/ControlPanel';
-import { motion } from "framer-motion";
+import ContentPanel from './components/Panels/ControlPanel';
+import { AnimatePresence, motion } from "framer-motion";
 
+// Animation Related Variables
 const panelVariant = {
   hidden: { opacity: 0, y: 80 },
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const }
+    transition: { duration: 0.67, ease: "easeOut" as const, delay: 0.2 }
+  }
+};
+
+const panelSwitchVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.35, ease: "easeOut" as const }
+  },
+  exit: { 
+    opacity: 0, 
+    y: -20,
+    transition: { duration: 0.2, ease: "easeIn" as const }
   }
 };
 
@@ -45,6 +60,7 @@ function App() {
     },
   ]);
 
+  // Handles terminal scrolling
   useEffect(() => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
@@ -53,15 +69,18 @@ function App() {
 
   // Pre-loads the stone background image in order to avoid a delay
   useEffect(() => {
-      const img = new Image();
-      img.src = stone;
-    }, []);
+    const img = new Image();
+    img.src = stone;
+  }, []);
 
+  // Function for handling inputs
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    
+    // If the Enter key was pressed
     if (e.key === "Enter" && input.trim() !== "") {
-
       let output: Line;
 
+      // Checks if input was a command, showcases an error message if not
       if (!input.startsWith("/")) {
         output = {
           type: "error",
@@ -72,20 +91,18 @@ function App() {
         output = handleCommand(input.slice(1));
       }
 
+      // Handles each command type that was given
       if (output.type === "command") {
         switch (output.command) {
-
           case "about":
             setActivePanel("about");
             break;
-
           case "projects":
+            setActivePanel("projects");
             break;
-          
           case "clear":
             setLines([]);
             break;
-          
           default:
             break;
         }
@@ -95,16 +112,15 @@ function App() {
       setHistory((prev) => [...prev, input]);
       setHistoryIndex(-1);
       setInput("");
-
+    
+    // If user presses up or down arrow keys, they go to
+    // the next or previous command entered if it exists
     } else if (e.key === "ArrowUp") {
-
       if (history.length === 0) return;
       const newIndex = historyIndex === -1 ? history.length - 1 : Math.max(0, historyIndex - 1);
       setHistoryIndex(newIndex);
       setInput(history[newIndex]);
-      
     } else if (e.key === "ArrowDown") {
-
       if (history.length === 0) return;
       const newIndex = Math.min(history.length - 1, historyIndex + 1);
       setHistoryIndex(newIndex);
@@ -114,7 +130,7 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen w-full bg-repeat bg-center bg-[length:60%] pt-[3rem]" style={{ backgroundImage : `url(${dirt})`}}>
+      <div className="min-h-[43rem] w-full bg-repeat bg-center bg-[length:60%] pt-[3rem]" style={{ backgroundImage : `url(${dirt})`}}>
         <div className={`font-[Minecraft] w-[90%] mx-auto flex gap-6`}>
 
           {/*
@@ -124,49 +140,51 @@ function App() {
           */}
           <div className={`w-[45%] h-[35rem] bg-black/50 border border-white/20 rounded-md text-xl p-4 flex flex-col`}>
 
-            <div className="flex-1 overflow-y-auto flex flex-col justify-end" ref={terminalRef}>
+            <div className="flex-1 overflow-y-auto min-h-0" ref={terminalRef}>
+              <div className="flex flex-col justify-end min-h-full">
+                {/* Render all previous lines */}
+                {lines.map((line, idx) => {
 
-              {/* Render all previous lines */}
-              {lines.map((line, idx) => {
+                  let color = "";
 
-                let color = "";
-
-                // If there's an error
-                switch (line.type) {
-                  case "intro":
-                    color = "text-blue-400";
-                    break;
-                  case "alt":
-                    color = "text-green-400";
-                    break;
-                    case "command":
-                      
-                    switch (line.command) {
-                      case "projects":
-                        color = "text-green-400";
-                        break;
-                      default:
-                        color = "text-blue-500";
-                        break;
-                    }
-
-                    break;
-                  case "error":
-                    color = "text-red-500";
-                    break;
-                    case "plain":
-                      color = "text-white";
+                  // If there's an error
+                  switch (line.type) {
+                    case "intro":
+                      color = "text-blue-400";
                       break;
-                }
-                
-                return (
-                  <div key={idx} className={`${color}`}>
-                    {Array.isArray(line.text)
-                    ? line.text.map((t, i) => <div key={i}>{t}</div>)
-                    : line.text}
-                  </div>
-                )
-              })}
+                    case "alt":
+                      color = "text-green-400";
+                      break;
+                      case "command":
+                        
+                      switch (line.command) {
+                        case "projects":
+                          color = "text-green-400";
+                          break;
+                        default:
+                          color = "text-blue-500";
+                          break;
+                      }
+
+                      break;
+                    case "error":
+                      color = "text-red-500";
+                      break;
+                      case "plain":
+                        color = "text-white";
+                        break;
+                  }
+                  
+                  return (
+                    <div key={idx} className={`${color}`}>
+                      {Array.isArray(line.text)
+                      ? line.text.map((t, i) => <div key={i}>{t}</div>)
+                      : line.text}
+                    </div>
+                  )
+                })}
+              </div>
+
             </div>
 
             <div className="flex items-center text-white mt-2">
@@ -188,8 +206,18 @@ function App() {
             Control Panel
             -------------------------------------
           */}
-          <motion.div className="w-[55%]" variants={panelVariant} initial="hidden" animate="visible">
-            <ContentPanel activePanel={activePanel} />
+          <motion.div className="w-[55%] h-[35rem] min-h-0 overflow-y-auto" variants={panelVariant} initial="hidden" animate="visible">
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={activePanel} 
+                variants={panelSwitchVariant} 
+                initial="hidden" 
+                animate="visible" 
+                exit="exit"
+              >
+                <ContentPanel activePanel={activePanel} />
+              </motion.div>
+            </AnimatePresence>
           </motion.div>
 
         </div>

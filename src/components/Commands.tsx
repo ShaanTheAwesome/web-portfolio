@@ -14,7 +14,7 @@ function handleCommand(input: string): Line {
               "/help - gives you a list of commands.",
               "/about - provides details about myself.",
               "/clear - clears the chat history.",
-              "/projects - lists my personal projects (coming soon)"
+              "/projects - lists my personal projects (demos coming soon)"
             ]
       };
 
@@ -36,14 +36,7 @@ function handleCommand(input: string): Line {
       return {
         type: "command",
         command: "projects",
-        text: [
-          "List of Projects:",
-          "> Portfolio Website - this website.",
-          "> Deepfake Media Detector - full video analysis of whether media is AI generated or not. Includes frame analysis page and forensic techniques.",
-          "> Chef's Surprise - random meal generator with instructions and images.",
-          "> Business Card Maker - allows creation of business cards with an attachable image.",
-          "> Shadow Mario - small mario-like 2D platformer made in Java."
-        ]
+        text: "Projects listed on the right."
       }
 
     default:
