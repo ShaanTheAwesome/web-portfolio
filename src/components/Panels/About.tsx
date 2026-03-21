@@ -1,4 +1,4 @@
-import ME from "../../assets/me.jpg";
+import { me } from "../../assets";
 
 export default function About() {
 
@@ -21,7 +21,7 @@ export default function About() {
       {/* RIGHT — IMAGE (40%) */}
       <div className="flex-shrink-0 flex justify-center items-start">
         <img
-          src={ME}
+          src={me}
           alt="Profile"
           className="w-full h-[25rem] object-cover border-2 border-black"
         />

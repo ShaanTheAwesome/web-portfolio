@@ -1,8 +1,7 @@
-import dirt from './assets/dirt.jpg';
-import stone from "./assets/stone.jpg";
+import { dirt, stone } from './assets/index'
 import { useEffect, useRef, useState } from 'react';
-import { handleCommand } from './components/Commands';
-import type { CommandType, Line } from "./components/LineType";
+import { handleCommand } from './components/Terminal/Commands';
+import type { CommandType, Line } from "./components/Terminal/LineType";
 import ContentPanel from './components/Panels/ControlPanel';
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -158,11 +157,11 @@ function App() {
                       case "command":
                         
                       switch (line.command) {
-                        case "projects":
-                          color = "text-green-400";
+                        case "help":
+                          color = "text-blue-500";
                           break;
                         default:
-                          color = "text-blue-500";
+                          color = "text-green-400";
                           break;
                       }
 

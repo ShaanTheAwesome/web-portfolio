@@ -1,6 +1,7 @@
-import stone from "../../assets/stone.jpg";
+import { stone, wood } from "../../assets";
 import About from "./About";
 import Projects from "./Projects";
+import Skills from "./Skills";
 
 interface Props {
   activePanel: string;
@@ -8,25 +9,26 @@ interface Props {
 
 export default function ContentPanel({ activePanel }: Props) {
 
-  let content, title;
+  let content, title, background;
 
   switch (activePanel) {
-    case "about":
-      content = <About />;
-      title = "About Me"
-      break;
-
     case "projects":
       content = <Projects />;
       title = "Projects"
+      background = wood;
       break;
 
-    case "stuff":
-      content = <div>Experience Coming Soon</div>;
+    case "skills":
+      content = <Skills />;
+      title = "Tech Stack"
+      background = wood;
       break;
 
     default:
-      content = <div>Select something...</div>;
+      content = <About />;
+      title = "About Me"
+      background = stone;
+      break;
   }
 
   return (
@@ -46,7 +48,7 @@ export default function ContentPanel({ activePanel }: Props) {
                    text-shadow-black text-shadow-lg/30
                    bg-[length:75%]"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${stone})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${background})`,
         }}
       >
         {content}

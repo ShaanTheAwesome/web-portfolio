@@ -14,7 +14,8 @@ function handleCommand(input: string): Line {
               "/help - gives you a list of commands.",
               "/about - provides details about myself.",
               "/clear - clears the chat history.",
-              "/projects - lists my personal projects (demos coming soon)"
+              "/projects - lists my personal projects. (demos coming soon)",
+              "/skills - displays technical and soft skills."
             ]
       };
 
@@ -36,7 +37,14 @@ function handleCommand(input: string): Line {
       return {
         type: "command",
         command: "projects",
-        text: "Projects listed on the right."
+        text: "Listing projects..."
+      }
+
+    case "skills":
+      return {
+        type: "command",
+        command: "skills",
+        text: "Displying technical skills..."
       }
 
     default:

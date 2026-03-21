@@ -1,5 +1,6 @@
-import sunset from "../assets/clouds.jpg";
-import { mcBox } from "./Minecraft";
+import { clouds } from "../../assets";
+import { mcBox } from "../MinecraftUI/Minecraft";
+
 
 export default function Navbar() {
   
@@ -17,7 +18,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <div className="font-[Minecraft] bg-[length:120%] bg-center w-full h-[16rem] pt-[2.7rem]" style={{ backgroundImage : `url(${sunset})`}}>
+      <div className="font-[Minecraft] bg-[length:120%] bg-center w-full h-[16rem] pt-[2.7rem]" style={{ backgroundImage : `url(${clouds})`}}>
         <h1 className="text-shadow-lg text-shadow-black text-white text-[3rem] text-center text-margin">Pirdnani Shaan Satoshi Lalit</h1>
         <div className="flex my-[1rem] gap-[1rem] justify-center">
 

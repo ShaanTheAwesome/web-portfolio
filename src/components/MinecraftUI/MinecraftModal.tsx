@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { mcBox } from "./Minecraft";
+import { mcBox } from "./MinecraftUI/Minecraft";
 import stone from "../assets/stone.jpg";
 
 interface MinecraftModalProps {
