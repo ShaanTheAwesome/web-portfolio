@@ -7,6 +7,8 @@ type Project = {
   github?: string;
 };
 
+const isVideo = (src: string) => src.endsWith(".mp4") || src.endsWith(".webm") || src.endsWith(".ogg");
+
 const projects: Project[] = [
   {
     name: "Portfolio Website",
@@ -18,12 +20,12 @@ const projects: Project[] = [
     name: "Deepfake Media Detector",
     description: "Full video analysis pipeline for detecting AI-generated media. Includes frame-by-frame forensic analysis and structured report generation.",
     tech: ["ReactJS", "Flask", "Python", "Docker", "PostGreSQL"],
-    live: "https://www.canva.com/design/DAG2NCS4qaU/cpBotbXUyrB6srRLuy1GNA/edit",
+    image: "/ITProjectPresentation.mp4"
   },
   {
     name: "Chef's Surprise",
     description: "Random meal generator with cuisine filtering, dynamic cooking instructions, and dish images via REST APIs.",
-    tech: ["JavaScript", "CSS", "REST APIs"],
+    tech: ["JavaScript", "CSS", "HTML", "REST APIs"],
     github: "https://github.com/ShaanTheAwesome/Chefs-Surprise",
   },
   {
@@ -42,7 +44,7 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <div className="flex flex-col gap-12 p-4 pb-8">
+    <div className="text-shadow-black text-shadow-lg/60 flex flex-col gap-12 p-4 pb-8">
       {projects.map((project, idx) => {
         const isLeft = idx % 2 === 0;
 
@@ -55,19 +57,12 @@ export default function Projects() {
             <div className={`flex flex-col gap-3 w-1/2 ${isLeft ? "items-start text-left" : "items-end text-right"}`}>
 
               {/* Project Name */}
-              {project.live ? (
-                <a href={project.live} target="_blank" rel="noopener noreferrer"
-                  className="text-yellow-300 text-2xl hover:text-yellow-100 transition-colors duration-200 underline underline-offset-4">
-                  {project.name}
-                </a>
-              ) : (
-                <span className="text-yellow-300 text-2xl">{project.name}</span>
-              )}
+              <span className="text-yellow-300 text-2xl">{project.name}</span>
 
               {/* Tech Stack */}
               <div className={`flex flex-wrap gap-2 ${isLeft ? "justify-start" : "justify-end"}`}>
                 {project.tech.map((t, i) => (
-                  <span key={i} className="text-sm bg-white/10 border border-white/20 text-green-300 px-2 py-0.5 rounded">
+                  <span key={i} className="text-sm bg-white/25 border border-white/20 text-green-300 px-2 py-0.5 rounded">
                     {t}
                   </span>
                 ))}
@@ -96,10 +91,14 @@ export default function Projects() {
             {/* Image Side */}
             <div className="w-1/2 aspect-video bg-white/5 border border-white/20 rounded-md overflow-hidden flex items-center justify-center">
               {project.image ? (
-                <a href={project.live ?? project.github ?? "#"} target="_blank" rel="noopener noreferrer" className="w-full h-full">
-                  <img src={project.image} alt={project.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-                </a>
+                isVideo(project.image) ? (
+                  <video src={project.image} controls className="w-full h-full object-cover" />
+                ) : (
+                  <a href={project.live ?? project.github ?? "#"} target="_blank" rel="noopener noreferrer" className="w-full h-full">
+                    <img src={project.image} alt={project.name}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  </a>
+                )
               ) : (
                 <span className="text-white/30 text-sm">No preview available</span>
               )}

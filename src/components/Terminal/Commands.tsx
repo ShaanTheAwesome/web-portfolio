@@ -15,7 +15,7 @@ function handleCommand(input: string): Line {
               "/about - provides details about myself.",
               "/clear - clears the chat history.",
               "/projects - lists my personal projects. (demos coming soon)",
-              "/skills - displays technical and soft skills."
+              "/skills - displays technical and soft skills. (coming soon)"
             ]
       };
 
