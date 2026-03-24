@@ -44,7 +44,7 @@ function handleCommand(input: string): Line {
       return {
         type: "command",
         command: "skills",
-        text: "Displying technical skills..."
+        text: "Skills to be added at a later date! Please refer to my Resume for now."
       }
 
     default:
