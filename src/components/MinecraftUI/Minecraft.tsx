@@ -1,4 +1,3 @@
-
 // Minecraft Button UI
 const mcBox = `font-[Minecraft]
             border-2 border-b-4
