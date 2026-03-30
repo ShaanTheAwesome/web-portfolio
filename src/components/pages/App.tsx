@@ -1,8 +1,8 @@
-import { dirt, stone } from './assets/index'
+import { dirt, stone } from '../../assets/index'
 import { useEffect, useRef, useState } from 'react';
-import { handleCommand } from './components/Terminal/Commands';
-import type { CommandType, Line } from "./components/Terminal/LineType";
-import ContentPanel from './components/Panels/ControlPanel';
+import { handleCommand } from '../Terminal/Commands';
+import type { CommandType, Line } from "../Terminal/LineType";
+import ContentPanel from '../Panels/ControlPanel';
 import { AnimatePresence, motion } from "framer-motion";
 
 // Animation Related Variables
@@ -32,7 +32,7 @@ const panelSwitchVariant = {
 function App() {
 
   const [input, setInput] = useState("");
-  const [activePanel, setActivePanel] = useState<CommandType>("about");
+  const [activePanel, setActivePanel] = useState<CommandType>("none");
   const [history, setHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number>(-1);
   const terminalRef = useRef<HTMLDivElement | null>(null);

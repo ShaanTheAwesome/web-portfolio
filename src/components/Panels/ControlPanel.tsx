@@ -1,5 +1,6 @@
 import { stone, wood } from "../../assets";
 import About from "./About";
+import Default from "./Default";
 import Projects from "./Projects";
 import Skills from "./Skills";
 
@@ -12,7 +13,13 @@ export default function ContentPanel({ activePanel }: Props) {
   let content, title, background;
 
   switch (activePanel) {
-    case "projects":
+    case "about":
+      content = <About />;
+      title = "About Me"
+      background = stone;
+      break;
+
+      case "projects":
       content = <Projects />;
       title = "Projects"
       background = stone;
@@ -25,8 +32,8 @@ export default function ContentPanel({ activePanel }: Props) {
       break;
 
     default:
-      content = <About />;
-      title = "About Me"
+      content = <Default />;
+      title = "Welcome!"
       background = stone;
       break;
   }
