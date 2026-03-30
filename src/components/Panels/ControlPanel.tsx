@@ -33,7 +33,7 @@ export default function ContentPanel({ activePanel }: Props) {
 
     default:
       content = <Default />;
-      title = "Welcome!"
+      title = "Pictures"
       background = stone;
       break;
   }
