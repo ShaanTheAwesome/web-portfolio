@@ -13,6 +13,7 @@ function handleCommand(input: string): Line {
               "Available commands:",
               "/help - gives you a list of commands.",
               "/about - provides details about myself.",
+              "/me - some of my pictures",
               "/clear - clears the chat history.",
               "/projects - lists my personal projects. (demos coming soon)",
               "/skills - displays technical and soft skills. (coming soon)"
@@ -45,6 +46,13 @@ function handleCommand(input: string): Line {
         type: "command",
         command: "skills",
         text: "Skills to be added at a later date! Please refer to my Resume for now."
+      }
+
+    case "me":
+      return {
+        type: "command",
+        command: "me",
+        text: "Woah is that me on the right? I look handsome."
       }
 
     default:

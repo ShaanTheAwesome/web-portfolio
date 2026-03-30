@@ -1,7 +1,7 @@
 import { me, baby, ymca } from '../../assets/index'
 
 const photos = [
-  { src: baby, alt: "Photo 1", caption: "baby me", rotation: "-rotate-3", top: "top-[0%]", left: "left-[2%]", width: "w-[45%]", aspect: "aspect-video" },
+  { src: baby, alt: "Photo 1", caption: "aura farming baby", rotation: "-rotate-3", top: "top-[0%]", left: "left-[2%]", width: "w-[45%]", aspect: "aspect-video" },
   { src: ymca, alt: "Photo 2", caption: "me in 2022", rotation: "rotate-8", top: "top-[8%]", left: "left-[67%]", width: "w-[22%]", aspect: "aspect-[3/4]" },
   { src: me, alt: "Photo 3", caption: "melbourne days", rotation: "-rotate-2", top: "top-[40%]", left: "left-[40%]", width: "w-[24%]", aspect: "aspect-[3/4]" },
 ];
