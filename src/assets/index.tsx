@@ -5,3 +5,5 @@ export { default as dirt } from "./backgrounds/dirt.jpg";
 export { default as stone } from "./backgrounds/stone.jpg";
 export { default as clouds } from "./backgrounds/clouds.jpg";
 export { default as wood } from "./backgrounds/woodplank.jpg";
+export { default as chef } from "./projects/ChefsSurprise.png";
+export { default as portfolio } from "./projects/Portfolio.png";

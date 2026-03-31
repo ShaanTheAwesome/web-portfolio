@@ -1,3 +1,6 @@
+import { chef, portfolio } from "../../assets";
+
+
 type Project = {
   name: string;
   description: string;
@@ -14,7 +17,7 @@ const projects: Project[] = [
     name: "Portfolio Website",
     description: "This website. A Minecraft-themed interactive portfolio with a command terminal interface and dynamic content panels.",
     tech: ["React", "TypeScript XML", "Tailwind", "Framer Motion"],
-    image: "/images/Portfolio.png",
+    image: portfolio,
     github: "https://github.com/ShaanTheAwesome/web-portfolio",
   },
   {
@@ -27,7 +30,7 @@ const projects: Project[] = [
     name: "Chef's Surprise",
     description: "Random meal generator with cuisine filtering, dynamic cooking instructions, and dish images via REST APIs.",
     tech: ["JavaScript", "CSS", "HTML", "REST APIs"],
-    image: "/images/ChefsSurprise.png",
+    image: chef,
     github: "https://github.com/ShaanTheAwesome/Chefs-Surprise",
   },
   {
