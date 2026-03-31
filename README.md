@@ -1,73 +1,110 @@
-# React + TypeScript + Vite
+# ⚔️ Minecraft Terminal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website themed around Minecraft's command terminal. Instead of a traditional static layout, visitors navigate the portfolio by typing commands into an interactive terminal — just like in-game.
 
-Currently, two official plugins are available:
+🔗 **[Live Demo](https://shaanpirdnani.vercel.app)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎮 Concept
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The experience is split into distinct stages:
 
-## Expanding the ESLint configuration
+- **Landing Page** — A full-screen Minecraft-themed screen with a command input. Type `/start` to begin.
+- **Terminal** — A Minecraft-style command terminal where visitors type commands to navigate
+- **Content Panel** — Dynamically updates based on the command entered
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🧱 Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **React** (TypeScript / TSX)
+- **Tailwind CSS**
+- **Framer Motion** — page transitions and panel animations
+- **Vite** — build tool
+- Deployed on **Vercel**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## ⌨️ Commands
+
+| Command | Description |
+|---|---|
+| `/start` | Begin the experience from the landing page |
+| `/about` | View info about me |
+| `/projects` | Browse my projects |
+| `/skills` | View my tech stack |
+| `/help` | View all available commands |
+| `/clear` | Clear the terminal |
+
+---
+
+## ✅ Features
+
+- **Landing page** — full screen Minecraft background with terminal-style input
+- **Command-based navigation** — type commands to explore the portfolio
+- **Terminal history** — navigate previous commands with `↑` / `↓` arrow keys
+- **Auto-scroll** — terminal scrolls to latest output automatically
+- **Panel animations** — content panel slides and fades on every command switch
+- **Photo album panel** — scattered polaroid-style photos with captions
+- **Project showcase** — alternating layout with tech badges, descriptions, GitHub links and video/image previews
+- **Minecraft aesthetic** — pixel font, dirt/stone/cloud textures, dark overlays
+
+---
+
+## 📁 Project Structure
+```txt
+src/
+├── assets/
+│   └── index.ts
+├── components/
+│   ├── MinecraftUI/
+│   │   ├── Minecraft.tsx
+│   │   └── MinecraftModal.tsx
+│   ├── Panels/
+│   │   ├── About.tsx
+│   │   ├── ControlPanel.tsx
+│   │   ├── Default.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Projects.tsx
+│   │   └── Skills.tsx
+│   ├── Terminal/
+│   │   ├── Commands.tsx
+│   │   └── LineType.tsx
+│   └── Landing.tsx
+├── App.tsx
+├── Root.tsx
+├── main.tsx
+└── index.css
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
+```bash
+# Clone the repo
+git clone https://github.com/ShaanTheAwesome/web-portfolio
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
 ```
+
+---
+
+## 🚧 In Progress
+
+- `/skills` panel content
+- `/contact` command and panel
+- `/experience` panel
+- Mobile responsiveness
+- Easter egg command
+- Project screenshots
+
+---
+
+## 💡 About This Project
+
+This portfolio is designed to stand out — built for recruiters and developers who appreciate creativity and technical craft. The Minecraft theme reflects a genuine love for the game while demonstrating frontend skills, interactive UI design, and attention to detail.
