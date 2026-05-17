@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <div className="font-[Minecraft] bg-[length:120%] bg-center w-full h-[16rem] pt-[2.7rem]" style={{ backgroundImage : `url(${clouds})`}}>
+      <div className="font-[Minecraft] bg-[length:120%] bg-center w-full h-[14rem] pt-[2.7rem]" style={{ backgroundImage : `url(${clouds})`}}>
         <h1 className="text-shadow-lg text-shadow-black text-white text-[3rem] text-center text-margin">Pirdnani Shaan Satoshi Lalit</h1>
         <div className="flex my-[1rem] gap-[1rem] justify-center">
 

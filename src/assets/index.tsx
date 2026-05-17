@@ -7,3 +7,4 @@ export { default as clouds } from "./backgrounds/clouds.jpg";
 export { default as wood } from "./backgrounds/woodplank.jpg";
 export { default as chef } from "./projects/ChefsSurprise.png";
 export { default as portfolio } from "./projects/Portfolio.png";
+export { default as cubetrackr } from "./projects/cubetrackr.png";

@@ -24,6 +24,7 @@ export default function Root() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" as const }}
+          className='min-h-screen flex flex-col'
         >
           <Navbar />
           <App />

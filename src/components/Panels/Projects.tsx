@@ -1,4 +1,4 @@
-import { chef, portfolio } from "../../assets";
+import { chef, cubetrackr, portfolio } from "../../assets";
 
 
 type Project = {
@@ -8,23 +8,34 @@ type Project = {
   image?: string;
   live?: string;
   github?: string;
+  imageFit?: "landscape" | "portrait"
 };
 
 const isVideo = (src: string) => src.endsWith(".mp4") || src.endsWith(".webm") || src.endsWith(".ogg");
 
 const projects: Project[] = [
   {
+    name: "CubeTimr",
+    description: "A speedcubing timer browser extension for conveniet cubing and tracking whilst browsing.",
+    tech: ["React", "TypeScript", "ManifestV3", "Tailwind"],
+    image: cubetrackr,
+    github: "https://github.com/ShaanTheAwesome/CubeTimr",
+    imageFit: "portrait",
+  },
+  {
     name: "Portfolio Website",
     description: "This website. A Minecraft-themed interactive portfolio with a command terminal interface and dynamic content panels.",
-    tech: ["React", "TypeScript XML", "Tailwind", "Framer Motion"],
+    tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
     image: portfolio,
     github: "https://github.com/ShaanTheAwesome/web-portfolio",
+    imageFit: "landscape",
   },
   {
     name: "Deepfake Media Detector",
     description: "Full video analysis pipeline for detecting AI-generated media. Includes frame-by-frame forensic analysis and structured report generation.",
     tech: ["ReactJS", "Flask", "Python", "Docker", "PostGreSQL"],
-    image: "/ITProjectPresentation.mp4"
+    image: "/ITProjectPresentation.mp4",
+    imageFit: "landscape",
   },
   {
     name: "Chef's Surprise",
@@ -32,18 +43,14 @@ const projects: Project[] = [
     tech: ["JavaScript", "CSS", "HTML", "REST APIs"],
     image: chef,
     github: "https://github.com/ShaanTheAwesome/Chefs-Surprise",
-  },
-  {
-    name: "Business Card Maker",
-    description: "Drag-and-drop business card creator with live previews and export to PDF, PNG, and JPEG formats.",
-    tech: ["ReactJS", "html2canvas", "jspdf"],
-    github: "https://github.com/ShaanTheAwesome/business-card-maker",
+    imageFit: "landscape",
   },
   {
     name: "Shadow Mario",
     description: "A 2D platformer built in Java with modular player, enemy, and physics systems using object-oriented design.",
     tech: ["Java", "Bagel"],
     github: "https://github.com/ShaanTheAwesome/ShadowMario",
+    imageFit: "landscape",
   },
 ];
 
@@ -94,18 +101,21 @@ export default function Projects() {
             </div>
 
             {/* Image Side */}
-            <div className="w-1/2 aspect-video bg-white/5 border border-white/20 rounded-md overflow-hidden flex items-center justify-center">
+            <div className={`w-1/2 flex items-center justify-center ${project.imageFit !== "portrait" ? "aspect-video bg-white/5 border border-white/20 rounded-md overflow-hidden" : "aspect-[3/2]"}`}>
               {project.image ? (
                 isVideo(project.image) ? (
                   <video src={project.image} controls className="w-full h-full object-cover" />
                 ) : (
-                  <a href={project.live ?? project.github ?? "#"} target="_blank" rel="noopener noreferrer" className="w-full h-full">
+                  <a href={project.live ?? project.github ?? "#"} target="_blank" rel="noopener noreferrer"
+                    className={project.imageFit === "portrait" ? "w-fit h-fit" : "w-full h-full"}>
                     <img src={project.image} alt={project.name}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                      className={`${project.imageFit === "portrait"
+                        ? "max-h-64 w-auto border border-white/20 rounded-md"
+                        : "w-full h-full object-cover"} hover:scale-105 transition-transform duration-300`} />
                   </a>
                 )
               ) : (
-                <span className="text-white/30 text-sm">No preview available</span>
+                <span className="text-white text-xl">No preview available</span>
               )}
             </div>
           </div>

@@ -132,7 +132,7 @@ function App() {
 
   return (
     <>
-      <div className="min-h-[43rem] w-full bg-repeat bg-center bg-[length:60%] pt-[3rem]" style={{ backgroundImage : `url(${dirt})`}}>
+      <div className="flex-1 w-full h-full bg-repeat bg-center bg-[length:60%] pt-[3rem]" style={{ backgroundImage : `url(${dirt})`}}>
         <div className={`font-[Minecraft] w-[90%] mx-auto flex gap-6`}>
 
           {/*
