@@ -1,6 +1,5 @@
 import { chef, cubetrackr, portfolio } from "../../assets";
 
-
 type Project = {
   name: string;
   description: string;
@@ -16,7 +15,7 @@ const isVideo = (src: string) => src.endsWith(".mp4") || src.endsWith(".webm") |
 const projects: Project[] = [
   {
     name: "CubeTimr",
-    description: "A speedcubing timer browser extension for conveniet cubing and tracking whilst browsing.",
+    description: "A speedcubing timer browser extension for convenient cubing and tracking whilst browsing.",
     tech: ["React", "TypeScript", "ManifestV3", "Tailwind"],
     image: cubetrackr,
     github: "https://github.com/ShaanTheAwesome/CubeTimr",
