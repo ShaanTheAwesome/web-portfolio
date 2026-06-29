@@ -8,13 +8,13 @@ export default function About() {
       {/* LEFT — TEXT (55%) */}
       <div className="flex-1 min-w-0 flex flex-col gap-[1rem]">
         <p>
-          Hey, I'm Shaan! I completed a Computer Science degree at the University of Melbourne and am actively looking for Software Engineering
+          Hey, I'm Shaan! I completed a Computer Science degree at the University of Melbourne and am actively looking for roles revolving around Software Development.
         </p>
         <p>
-          I'm originally from Okinawa, Japan, but moved to Hong Kong when I was around 5 years old. I completed my studies and moved to Melbourne to pursue my degree in Computer Science.
+          I currently work as a remote freelancer for the company Votanic Limited which is based in Hong Kong SAR. Our aim is to close the gap between VR and education by building interactive applications that illustrate science concepts for up to grade 12 students.
         </p>
         <p>
-          I enjoy learning about the latest tech, playing video games, speedcubing, going out for walks, gymming, coffee chats, and am very open to trying new things. Feel free to shoot me a message if you would like to do anything.
+          Outside of work, I enjoy learning about the latest tech, playing video games, speedcubing, going out for walks, gymming, coffee chats, and am very open to trying new things. Feel free to shoot me a message if you would like to do anything.
         </p>
       </div>
 

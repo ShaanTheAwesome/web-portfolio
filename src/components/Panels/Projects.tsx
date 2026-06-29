@@ -1,4 +1,4 @@
-import { chef, cubetrackr, portfolio } from "../../assets";
+import { chef, cubetrackr, portfolio, sevaboard } from "../../assets";
 
 type Project = {
   name: string;
@@ -6,6 +6,8 @@ type Project = {
   tech: string[];
   image?: string;
   live?: string;
+  link?: string;
+  download?: string;
   github?: string;
   imageFit?: "landscape" | "portrait"
 };
@@ -14,11 +16,21 @@ const isVideo = (src: string) => src.endsWith(".mp4") || src.endsWith(".webm") |
 
 const projects: Project[] = [
   {
+    name: "SevaBoard",
+    description: "A project management tool for Chinmaya Mission Melbourne. (Currently tailored for their Krishna Janmashtami event only)",
+    tech: ["React", "Supabase", "TanStack Query", "Vercel", "TypeScript"],
+    image: sevaboard,
+    link: "https://sevaboardcmm.vercel.app",
+    github: "https://github.com/ShaanTheAwesome/sevaboard",
+    imageFit: "landscape",
+  },
+  {
     name: "CubeTimr",
     description: "A speedcubing timer browser extension for convenient cubing and tracking whilst browsing.",
     tech: ["React", "TypeScript", "ManifestV3", "Tailwind"],
     image: cubetrackr,
     github: "https://github.com/ShaanTheAwesome/CubeTimr",
+    download: "https://addons.mozilla.org/en-US/firefox/addon/cubetimr/",
     imageFit: "portrait",
   },
   {
@@ -96,6 +108,12 @@ export default function Projects() {
                     Live Demo
                   </a>
                 )}
+                {project.download && (
+                  <a href={project.download} target="_blank" rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-200 transition-colors duration-200 underline underline-offset-2">
+                    Download
+                  </a>
+                )}
               </div>
             </div>
 
@@ -105,7 +123,7 @@ export default function Projects() {
                 isVideo(project.image) ? (
                   <video src={project.image} controls className="w-full h-full object-cover" />
                 ) : (
-                  <a href={project.live ?? project.github ?? "#"} target="_blank" rel="noopener noreferrer"
+                  <a href={project.link ?? project.live ?? project.github ?? "#"} target="_blank" rel="noopener noreferrer"
                     className={project.imageFit === "portrait" ? "w-fit h-fit" : "w-full h-full"}>
                     <img src={project.image} alt={project.name}
                       className={`${project.imageFit === "portrait"

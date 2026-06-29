@@ -39,7 +39,7 @@ export default function ContentPanel({ activePanel }: Props) {
   }
 
   return (
-    <div className="font-[Minecraft] w-full h-[35rem]
+    <div className="font-[Minecraft] w-full h-full flex flex-col
                     outline-4 outline-black
                     border-4 border-white bg-[#C6C6C6]">
 
@@ -51,7 +51,7 @@ export default function ContentPanel({ activePanel }: Props) {
 
       <div
         className="m-4 p-4 border-2 border-[#1a1a1a]
-                   text-white overflow-y-auto h-[28rem]
+                   text-white overflow-y-auto flex-1 min-h-0
                    text-shadow-black text-shadow-lg/30
                    bg-[length:75%]"
         style={{

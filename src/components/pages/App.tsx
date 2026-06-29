@@ -132,15 +132,15 @@ function App() {
 
   return (
     <>
-      <div className="flex-1 w-full h-full bg-repeat bg-center bg-[length:60%] pt-[3rem]" style={{ backgroundImage : `url(${dirt})`}}>
-        <div className={`font-[Minecraft] w-[90%] mx-auto flex gap-6`}>
+      <div className="flex-1 w-full min-h-0 bg-repeat bg-center bg-[length:60%] py-4 flex flex-col" style={{ backgroundImage : `url(${dirt})`}}>
+        <div className={`font-[Minecraft] w-[90%] mx-auto flex gap-6 flex-1 min-h-0`}>
 
           {/*
             -------------------------------------
             Terminal Logic
             -------------------------------------
           */}
-          <div className={`w-[45%] h-[35rem] bg-black/50 border border-white/20 rounded-md text-xl p-4 flex flex-col`}>
+          <div className={`w-[45%] h-full bg-black/50 border border-white/20 rounded-md text-xl p-4 flex flex-col`}>
 
             <div className="flex-1 overflow-y-auto min-h-0" ref={terminalRef}>
               <div className="flex flex-col justify-end min-h-full">
@@ -208,14 +208,15 @@ function App() {
             Control Panel
             -------------------------------------
           */}
-          <motion.div className="w-[55%] h-[35rem] min-h-0 overflow-y-auto" variants={panelVariant} initial="hidden" animate="visible">
+          <motion.div className="w-[55%] h-full min-h-0" variants={panelVariant} initial="hidden" animate="visible">
             <AnimatePresence mode="wait">
-              <motion.div 
-                key={activePanel} 
-                variants={panelSwitchVariant} 
-                initial="hidden" 
-                animate="visible" 
+              <motion.div
+                key={activePanel}
+                variants={panelSwitchVariant}
+                initial="hidden"
+                animate="visible"
                 exit="exit"
+                className="h-full"
               >
                 <ContentPanel activePanel={activePanel} />
               </motion.div>
