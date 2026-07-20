@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { clouds } from '../../assets/index';
+import { mcBox } from "../MinecraftUI/Minecraft";
 
 interface Props {
   onStart: () => void;
@@ -41,10 +42,21 @@ export default function Landing({ onStart }: Props) {
         </div>
 
       {error && (
-        <p className="font-[Minecraft] text-red-400 text-xl mt-4">
+        <p className="font-[Minecraft] text-red-500 text-shadow-lg text-shadow-black/40 text-xl mt-4">
           Unknown command. Try /start
         </p>
       )}
+      <p className="font-[Minecraft] text-green-300 text-shadow-lg text-shadow-black/40 text-xl mt-2">
+        You can also press this button
+      </p>
+      <button
+          className={`
+            ${mcBox}
+            mt-4 text-white text-center text-[1.2rem] text-shadow-black text-shadow-lg/40 w-64 truncate p-1 block
+          `}
+          onClick={onStart}>
+        Start
+      </button>
     </div>
   );
 }
