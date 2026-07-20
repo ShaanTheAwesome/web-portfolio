@@ -27,7 +27,7 @@ export default function ContentPanel({ activePanel }: Props) {
 
     case "skills":
       content = <Skills />;
-      title = "Tech Stack"
+      title = "Skills"
       background = wood;
       break;
 

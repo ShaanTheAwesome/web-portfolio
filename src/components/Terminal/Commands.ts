@@ -15,8 +15,8 @@ function handleCommand(input: string): Line {
               "/about - provides details about myself.",
               "/me - some of my pictures",
               "/clear - clears the chat history.",
-              "/projects - lists my personal projects. (demos coming soon)",
-              "/skills - displays technical and soft skills. (coming soon)"
+              "/projects - lists my personal projects.",
+              "/skills - displays my technical skills via the enchanting table."
             ]
       };
 
@@ -45,7 +45,7 @@ function handleCommand(input: string): Line {
       return {
         type: "command",
         command: "skills",
-        text: "Skills to be added at a later date! Please refer to my Resume for now."
+        text: "Opening my skills. Click to reveal..."
       }
 
     case "me":

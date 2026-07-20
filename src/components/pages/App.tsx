@@ -102,6 +102,9 @@ function App() {
           case "me":
             setActivePanel("me");
             break;
+          case "skills":
+            setActivePanel("skills");
+            break;
           case "clear":
             setLines([]);
             break;
